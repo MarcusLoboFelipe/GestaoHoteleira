@@ -1,37 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Data {
 
-	private int dia;
-	private int mes;
-	private int ano;
+	private List<dia> dia;
+	private List<mes> mes;
+	private List<ano> ano;
 
 	public Data(int dia, int mes, int ano) {
-		this.dia = dia;
-		this.mes = mes;
-		this.ano = ano;
+		this.dia = new ArrayList<dia>();
+		this.mes = new ArrayList<mes>();
+		this.ano = new ArrayList<ano>();
 	}
 
-	public int getDia() {
-		return dia;
+	public List getDia() {
+		return this.dia;
 	}
 
 	public void setDia(int dia) {
-		this.dia = dia;
+		this.dia.add(dia);
 	}
 
-	public int getMes() {
-		return mes;
+	public List getMes() {
+		return this.mes;
 	}
 
 	public void setMes(int mes) {
-		this.mes = mes;
+		this.mes.add(mes);
 	}
 
-	public int getAno() {
-		return ano;
+	public List getAno() {
+		return this.ano;
 	}
 
 	public void setAno(int ano) {
-		this.ano = ano;
+		this.ano.add(ano);
 	}
 	
 	// Retorna o número de dias passados desde 01/01/0001
@@ -72,14 +75,18 @@ public class Data {
 		for(int i = 1; i < ano; i++) {
 			if (i % 4 == 0 && (i % 100 != 0 || i % 400 == 0)) {
 				dias++;
-			}
+			} else {
+			    throw new EsforçoException();
+	}
 		}
 		
 		// Por fim, soma um dia se o ano atual for bissexto e já estivermos após 29/02
 		if (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
 			if (mes > 2) {
 				dias++;
-			}
+			} else {
+			    throw new EsforçoException();
+	}
 		}
 		
 		return dias; 

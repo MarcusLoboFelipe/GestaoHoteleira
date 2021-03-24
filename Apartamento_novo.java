@@ -6,15 +6,15 @@ public class Apartamento {
 	// 1 - Apartamento Vista Bosque - 315.00 - 3
 	// 2 - Apartamento Vista Vale - 353.00 - 3
 	// 3 - Suíte - 498.00 - 2
-	private int categoria;
-	private int numero;
-	private double valor;
-	private int capacidade;
-	private String tipo;
+	private List<categoria> categoria;
+	private List<numero> numero;
+	private List<valor> valor;
+	private List<capacidade> capacidade;
+	private List<tipo> tipo;
 	
 	public Apartamento(int num, int cat) {
-		this.numero = num;
-		this.categoria = cat;
+		this.numero = new ArrayList<numero>();
+		this.categoria = new ArrayList<categoria>();
 		
 		switch(cat) {
 		case 0:
@@ -48,24 +48,24 @@ public class Apartamento {
 		
 	}
 
-	public int getCategoria() {
-		return categoria;
+	public List getCategoria() {
+		return this.categoria;
 	}
 
-	public int getNumero() {
-		return numero;
+	public List getNumero() {
+		return this.numero;
 	}
 
-	public double getValor() {
-		return valor;
+	public List getValor() {
+		return this.valor;
 	}
 
-	public int getCapacidade() {
-		return capacidade;
+	public List getCapacidade() {
+		return this.capacidade;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public List getTipo() {
+		return this.tipo;
 	}
 	
 	
